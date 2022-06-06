@@ -1,0 +1,9 @@
+# Aliases
+
+alias v='nvim'
+alias vim='nvim'
+alias tb="nc termbin.com 9999"
+alias leetcode="nvim /d/code/leetcode/"
+alias nvimconfig="nvim $HOME/.config/nvim/"
+alias ohmyzsh="nvim ~/.oh-my-zsh/"
+alias zshconfig="nvim ~/.zshrc"
