@@ -113,8 +113,7 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 
-[ -f ~/.aliases ] && source ~/.aliases
 
 export PATH="${PATH}:${HOME}/.krew/bin"
 
-alias tb="nc termbin.com 9999"
+source ~/.aliases
