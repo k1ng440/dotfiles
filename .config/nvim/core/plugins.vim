@@ -3,8 +3,6 @@ call plug#begin()
 " Core
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'nvim-treesitter/nvim-treesitter-context'
-" Plug 'junnplus/nvim-lsp-setup'
-Plug 'horaoen/nvim-lsp-setup'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-path'
@@ -24,6 +22,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'sbdchd/neoformat'
 Plug 'ThePrimeagen/vim-be-good'
 Plug 'glepnir/lspsaga.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " Functionalities
 Plug 'tpope/vim-fugitive'
@@ -42,12 +41,11 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'mrjones2014/load-all.nvim'
 Plug 'vim-test/vim-test'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'phaazon/hop.nvim'
 Plug 'j-hui/fidget.nvim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
-" Plug 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'gregsexton/MatchTag', {'for': 'html'}
 Plug 'othree/html5.vim', {'for': 'html'}
 Plug 'mustache/vim-mustache-handlebars'
@@ -59,6 +57,8 @@ Plug 'simrat39/symbols-outline.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'mhinz/vim-rfc'
 Plug 'akinsho/toggleterm.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Draw ASCII diagrams 
 Plug 'jbyuki/venn.nvim'

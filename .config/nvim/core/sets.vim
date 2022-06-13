@@ -1,10 +1,14 @@
 """ Main Configurations
-set path+=**
 filetype indent on
 filetype plugin indent on  
+let mapleader=" "
 set autoindent
 set smartindent
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+" set expandtab
+" set smarttab
 set incsearch
 set hlsearch
 set wildmode=longest,list,full wildmenu
@@ -21,6 +25,7 @@ set nobackup
 set undofile
 set undodir=~/.vim/undo
 set wildmenu
+" set path+=**
 
 " Ignore files
 set wildignore+=*.pyc

@@ -24,7 +24,6 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -42,6 +41,5 @@ keymap("v", "p", '"_dP', opts)
 
 -- Custom
 keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
-keymap("x", "<leader>l", ":Limelight!!<cr>", opts)
 keymap("n", "<Tab>", ":bnext<cr>", opts)
 keymap("n", "<S-Tab>", ":bprevious<cr>", opts)
