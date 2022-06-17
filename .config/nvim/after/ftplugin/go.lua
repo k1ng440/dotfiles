@@ -20,7 +20,7 @@ local gotest = Terminal:new({
                 title = "Go Test",
             })
             _GO_TEST()
-			return
+            return
 		end
 
         notify("Test Failed", vim.log.levels.ERROR, {
