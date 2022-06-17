@@ -12,7 +12,6 @@ nnoremap <C-k> :cnext<CR>zz
 nnoremap <C-j> :cprev<CR>zz
 nnoremap <leader>k :lnext<CR>zz
 nnoremap <leader>j :lprev<CR>zz
-
 nnoremap <silent> gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
 
 " move lines

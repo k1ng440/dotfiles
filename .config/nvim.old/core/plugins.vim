@@ -17,12 +17,13 @@ Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'sbdchd/neoformat'
 Plug 'ThePrimeagen/vim-be-good'
-Plug 'glepnir/lspsaga.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'rcarriga/nvim-notify'
+Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
+Plug 'ray-x/lsp_signature.nvim'
 
 " Functionalities
 Plug 'tpope/vim-fugitive'
@@ -59,6 +60,13 @@ Plug 'mhinz/vim-rfc'
 Plug 'akinsho/toggleterm.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'simrat39/symbols-outline.nvim'
+Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries' }
+Plug 'RRethy/vim-illuminate'
+
+
+" Startus line
+Plug 'nvim-lualine/lualine.nvim'
 
 " Draw ASCII diagrams 
 Plug 'jbyuki/venn.nvim'
@@ -67,7 +75,10 @@ Plug 'jbyuki/venn.nvim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'Pocco81/DAPInstall.nvim'
 Plug 'szw/vim-maximizer'
+Plug 'rcarriga/nvim-dap-ui'
 
+" Github copilot
+Plug 'github/copilot.vim'
 
 " Aesthetics - Colorschemes
 Plug 'dracula/vim', { 'as': 'dracula' }

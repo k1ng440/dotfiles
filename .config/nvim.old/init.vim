@@ -41,7 +41,6 @@ autocmd BufLeave term://* stopinsert
 
 """ Core plugin configuration (lua)
 lua << EOF
-  --  require('lsp-setup')
     require('keymaps')
     require('treesitter-config')
     require('nvim-cmp-config')

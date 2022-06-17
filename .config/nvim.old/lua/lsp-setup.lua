@@ -12,6 +12,7 @@ require('nvim-lsp-setup').setup({
     -- Global on_attach
     on_attach = function(client, bufnr)
         require('nvim-lsp-setup.utils').format_on_save(client)
+        require "lsp_signature".on_attach()
 
         if client.server_capabilities.documentHighlightProvider then
             vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })

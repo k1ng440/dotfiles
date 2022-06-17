@@ -79,7 +79,8 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
--- vim.notify(client.name .. " starting...")
+  require 'illuminate'.on_attach(client)
+  vim.notify(client.name .. " starting...")
 -- TODO: refactor this into a method that checks if string in list
   if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false

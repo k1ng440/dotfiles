@@ -1,0 +1,7 @@
+addToPath $HOME/.yarn/bin
+addToPath $HOME/.cargo/bin
+addToPath $HOME/.rustup
+addToPath /usr/local/go/bin
+addToPath $GOPATH/bin
+addToPath ${HOME}/.krew/bin
+
