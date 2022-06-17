@@ -56,11 +56,12 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
   use "tami5/sqlite.lua"
   use "folke/todo-comments.nvim"
- 
-  --------------------------------------------- 
+  use "rcarriga/nvim-notify"
+
+ ---------------------------------------------
   -- Colorschemes
   ---------------------------------------------
-  use 'folke/tokyonight.nvim' -- tokyo night 
+  use 'folke/tokyonight.nvim' -- tokyo night
 
   ---------------------------------------------
   -- cmp plugins
@@ -71,7 +72,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
-  
+
   ---------------------------------------------
   -- LSP
   ---------------------------------------------
