@@ -8,6 +8,7 @@ local gotest = Terminal:new({
     cmd = "go test -failfast -v .",
     dir = vim.fn.expand("%:p:h"),
     close_on_exit = false,
+    persist_mode = false,
     float_opts = {
         border = "double",
     },

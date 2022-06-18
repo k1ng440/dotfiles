@@ -4,4 +4,4 @@ addToPath $HOME/.rustup
 addToPath /usr/local/go/bin
 addToPath $GOPATH/bin
 addToPath ${HOME}/.krew/bin
-
+addToPath ${HOME}/.local/bin

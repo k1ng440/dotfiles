@@ -47,6 +47,7 @@ return packer.startup(function(use)
   use "moll/vim-bbye" -- remove buffer (Bdelete)
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "nvim-lualine/lualine.nvim"
+  use "tpope/vim-sensible"
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'} -- buffer line
