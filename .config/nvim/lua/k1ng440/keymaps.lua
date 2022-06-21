@@ -1,6 +1,11 @@
 local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
+
 local keymap = vim.api.nvim_set_keymap
+local keymapper = require("k1ng440.keymapper")
+local nnoremap = keymapper.nnoremap
+-- local inoremap = keymapper.inoremap
+local xnoremap = keymapper.xnoremap
+local vnoremap = keymapper.vnoremap
 
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -19,40 +24,56 @@ vim.g.maplocalleader = " "
 -----------------------------------------------
 
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+nnoremap("<C-h>", "<C-w>h")
+nnoremap("<C-j>", "<C-w>j")
+nnoremap("<C-k>", "<C-w>k")
+nnoremap("<C-l>", "<C-w>l")
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+nnoremap("<C-Up>", ":resize -2<CR>")
+nnoremap("<C-Down>", ":resize +2<CR>")
+nnoremap("<C-Left>", ":vertical resize -2<CR>")
+nnoremap("<C-Right>", ":vertical resize +2<CR>")
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+nnoremap("<S-l>", ":bnext<CR>")
+nnoremap("<S-h>", ":bprevious<CR>")
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+nnoremap("<A-j>", "<Esc>:m .+1<CR>==gi")
+nnoremap("<A-k>", "<Esc>:m .-2<CR>==gi")
 
-keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
+nnoremap("<ESC>", ":nohlsearch<Bar>:echo<CR>")
+
+-- Remap %
+nnoremap("<Tab>", "%")
+
+-- Paste last yank, not the delete
+nnoremap(",p", '"0p')
+nnoremap(",P", '"0P')
+
+-- Insert blank line
+nnoremap("]<Space>", "o<Esc>")
+nnoremap("[<Space>", "O<Esc>")
 
 -----------------------------------------------
 -- Insert Mode
 -----------------------------------------------
 
--- Exit insert mode
-keymap("i", "jk", "<ESC>", opts)
+-----------------------------------------------
+-- Visual Mode
+-----------------------------------------------
+-- Better indent
+vnoremap("<", "<gv")
+vnoremap(">", ">gv")
+vnoremap("p", '"_dP')
 
 -----------------------------------------------
 -- Visual Block
 -----------------------------------------------
 
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "U", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+xnoremap("J", ":move '>+1<CR>gv-gv")
+xnoremap("U", ":move '<-2<CR>gv-gv")
+xnoremap("<A-j>", ":move '>+1<CR>gv-gv")
+xnoremap("<A-k>", ":move '<-2<CR>gv-gv")

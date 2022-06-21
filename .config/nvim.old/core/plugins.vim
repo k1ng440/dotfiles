@@ -68,7 +68,7 @@ Plug 'RRethy/vim-illuminate'
 " Startus line
 Plug 'nvim-lualine/lualine.nvim'
 
-" Draw ASCII diagrams 
+" Draw ASCII diagrams
 Plug 'jbyuki/venn.nvim'
 
 " Debugger

@@ -1,6 +1,6 @@
 """ Main Configurations
 filetype indent on
-filetype plugin indent on  
+filetype plugin indent on
 let mapleader=" "
 set autoindent
 set smartindent
@@ -13,7 +13,7 @@ set incsearch
 set hlsearch
 set wildmode=longest,list,full wildmenu
 set ruler laststatus=2 showcmd showmode
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 set nowrap
 set encoding=utf-8
 set textwidth=0
@@ -35,4 +35,3 @@ set wildignore+=**/node_modules/*
 set wildignore+=**/android/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
-

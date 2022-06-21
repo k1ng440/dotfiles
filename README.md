@@ -8,7 +8,3 @@ Welcome to my world. This is a collection of neovim, zsh configuration
 TODO
 ### Installation
 TODO
-
-
-
-

@@ -37,4 +37,3 @@ keymap("v", "p", '"_dP', opts)
 
 -- Custom
 keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
-

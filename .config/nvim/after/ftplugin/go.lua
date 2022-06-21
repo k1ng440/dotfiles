@@ -34,4 +34,4 @@ function _GO_TEST()
     gotest:toggle()
 end
 
-nnoremap("<leader>lr", "<cmd>lua _GO_TEST()<cr>")
+nnoremap("<leader>lt", "<cmd>lua _GO_TEST()<cr>")
