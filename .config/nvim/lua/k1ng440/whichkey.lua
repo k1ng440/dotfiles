@@ -92,6 +92,7 @@ local mappings = {
     },
     ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Live Grep" },
     ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+    ["e"] = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Diagnostic Float" },
 
     p = {
         name = "Packer",
@@ -183,6 +184,7 @@ local mappings = {
         name = "Neovim",
         l = { "<cmd>set invlist<CR>", "Toggle list" },
         r = { '<cmd>lua require("k1ng440.reload-nvim").reload()<CR>', "Reload Neovim Config" },
+        s = { "<cmd>setlocal spell! spell?<cr>", "Spell" },
     },
 }
 

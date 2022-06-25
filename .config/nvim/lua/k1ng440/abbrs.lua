@@ -2,7 +2,6 @@ vim.cmd([[
   iab ture true
   iab flase false
   iab kevin. kevin.j.lausen@gmail.com
-  iab i I
   iab teh the
   iab acomodate accommodate
   iab acommodate accommodate

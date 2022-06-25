@@ -134,6 +134,11 @@ local no_errors, error_msg = pcall(function()
             path = "/home/k1ng/.local/share/nvim/site/pack/packer/opt/dap-buddy.nvim",
             url = "https://github.com/Pocco81/dap-buddy.nvim",
         },
+        ["diffview.nvim"] = {
+            loaded = true,
+            path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/diffview.nvim",
+            url = "https://github.com/sindrets/diffview.nvim",
+        },
         ["dressing.nvim"] = {
             loaded = true,
             path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/dressing.nvim",
@@ -153,6 +158,14 @@ local no_errors, error_msg = pcall(function()
             loaded = true,
             path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
             url = "https://github.com/lewis6991/gitsigns.nvim",
+        },
+        ["goimpl.nvim"] = {
+            config = {
+                "\27LJ\2\nK\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\vgoimpl\19load_extension\14telescope\frequire\0",
+            },
+            loaded = true,
+            path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/goimpl.nvim",
+            url = "https://github.com/edolphin-ydf/goimpl.nvim",
         },
         ["impatient.nvim"] = {
             loaded = true,
@@ -197,15 +210,15 @@ local no_errors, error_msg = pcall(function()
         ["nvim-dap"] = {
             after = {
                 "telescope-dap.nvim",
+                "nvim-dap-virtual-text",
+                "nvim-dap-go",
+                "one-small-step-for-vimkind",
                 "nvim-dap-ui",
                 "dap-buddy.nvim",
-                "nvim-dap-virtual-text",
-                "one-small-step-for-vimkind",
                 "nvim-dap-python",
-                "nvim-dap-go",
             },
             config = {
-                "\27LJ\2\n>\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\21k1ng440.dap.init\frequire\0",
+                "\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16k1ng440.dap\frequire\0",
             },
             loaded = false,
             needs_bufread = false,
@@ -251,6 +264,11 @@ local no_errors, error_msg = pcall(function()
             path = "/home/k1ng/.local/share/nvim/site/pack/packer/opt/nvim-dap-virtual-text",
             url = "https://github.com/theHamsta/nvim-dap-virtual-text",
         },
+        ["nvim-lastplace"] = {
+            loaded = true,
+            path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/nvim-lastplace",
+            url = "https://github.com/ethanholz/nvim-lastplace",
+        },
         ["nvim-lsp-installer"] = {
             loaded = true,
             path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
@@ -275,11 +293,6 @@ local no_errors, error_msg = pcall(function()
             loaded = true,
             path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
             url = "https://github.com/nvim-treesitter/nvim-treesitter",
-        },
-        ["nvim-treesitter-context"] = {
-            loaded = true,
-            path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
-            url = "https://github.com/nvim-treesitter/nvim-treesitter-context",
         },
         ["nvim-ts-context-commentstring"] = {
             loaded = true,
@@ -316,15 +329,16 @@ local no_errors, error_msg = pcall(function()
             path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/plenary.nvim",
             url = "https://github.com/nvim-lua/plenary.nvim",
         },
-        ["popup.nvim"] = {
-            loaded = true,
-            path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/popup.nvim",
-            url = "https://github.com/nvim-lua/popup.nvim",
-        },
         ["project.nvim"] = {
             loaded = true,
             path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/project.nvim",
             url = "https://github.com/ahmedkhalf/project.nvim",
+        },
+        ["tabout.nvim"] = {
+            loaded = true,
+            path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/tabout.nvim",
+            url = "https://github.com/abecodes/tabout.nvim",
+            wants = { "nvim-treesitter" },
         },
         ["telescope-dap.nvim"] = {
             load_after = {
@@ -367,6 +381,11 @@ local no_errors, error_msg = pcall(function()
             only_cond = false,
             path = "/home/k1ng/.local/share/nvim/site/pack/packer/opt/vim-dispatch",
             url = "https://github.com/tpope/vim-dispatch",
+        },
+        ["vim-eunuch"] = {
+            loaded = true,
+            path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/vim-eunuch",
+            url = "https://github.com/tpope/vim-eunuch",
         },
         ["vim-illuminate"] = {
             loaded = true,
@@ -419,6 +438,15 @@ local no_errors, error_msg = pcall(function()
         table.insert(package.loaders, 1, lazy_load_module)
         vim.g.packer_custom_loader_enabled = true
     end
+
+    -- Config for: goimpl.nvim
+    time([[Config for goimpl.nvim]], true)
+    try_loadstring(
+        "\27LJ\2\nK\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\vgoimpl\19load_extension\14telescope\frequire\0",
+        "config",
+        "goimpl.nvim"
+    )
+    time([[Config for goimpl.nvim]], false)
 
     -- Command lazy-loads
     time([[Defining lazy-load commands]], true)

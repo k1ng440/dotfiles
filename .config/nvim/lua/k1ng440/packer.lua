@@ -42,7 +42,7 @@ return packer.startup(function(use)
     use("lewis6991/impatient.nvim")
     use("wbthomason/packer.nvim") -- Have packer manage itself
     use("nvim-lua/plenary.nvim") -- dependency for plugins
-    use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
+    -- use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
     use("kyazdani42/nvim-web-devicons") -- icons
     use("moll/vim-bbye") -- remove buffer (Bdelete)
     use("numToStr/Comment.nvim") -- Easily comment stuff
@@ -58,7 +58,8 @@ return packer.startup(function(use)
     use("rcarriga/nvim-notify")
     use("famiu/nvim-reload")
     use("gpanders/editorconfig.nvim")
-    use({ "mrjones2014/legendary.nvim" })
+    use("mrjones2014/legendary.nvim")
+    use("tpope/vim-eunuch") -- Vim sugar for the UNIX shell commands that need it the most
 
     ---------------------------------------------
     -- Motion
@@ -91,6 +92,21 @@ return packer.startup(function(use)
     use("RRethy/vim-illuminate")
 
     ---------------------------------------------
+    -- Codegen
+    ---------------------------------------------
+    use({
+        "edolphin-ydf/goimpl.nvim",
+        config = function()
+            require("telescope").load_extension("goimpl")
+        end,
+    }) -- Generate struct methods from interface
+
+    ---------------------------------------------
+    -- Copilot
+    ---------------------------------------------
+    -- use("github/copilot.vim")
+
+    ---------------------------------------------
     -- Debugger
     ---------------------------------------------
     use({
@@ -109,7 +125,7 @@ return packer.startup(function(use)
             { "jbyuki/one-small-step-for-vimkind", module = "osv" },
         },
         config = function()
-            require("k1ng440.dap.init").setup()
+            require("k1ng440.dap").setup()
         end,
     })
 
@@ -133,14 +149,13 @@ return packer.startup(function(use)
         run = ":TSUpdate",
     })
     use("JoosepAlviste/nvim-ts-context-commentstring")
-    use("nvim-treesitter/nvim-treesitter-context")
     use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
     use("p00f/nvim-ts-rainbow") -- nvim-ts-rainbow, Rainbow parentheses for neovim using tree-sitter
-    -- use({ -- tabout, start tabbing out from parentheses, quotes, and similar contexts
-    -- 	"abecodes/tabout.nvim",
-    -- 	wants = { "nvim-treesitter" }, -- or require if not used so far
-    -- })
-    -- use("ethanholz/nvim-lastplace")
+    use({ -- tabout, start tabbing out from parentheses, quotes, and similar contexts
+        "abecodes/tabout.nvim",
+        wants = { "nvim-treesitter" }, -- or require if not used so far
+    })
+    use("ethanholz/nvim-lastplace")
 
     ---------------------------------------------
     -- Snippets
@@ -152,6 +167,7 @@ return packer.startup(function(use)
     -- Git
     ---------------------------------------------
     use("lewis6991/gitsigns.nvim")
+    use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
     ---------------------------------------------
     -- Packer Bootstrap

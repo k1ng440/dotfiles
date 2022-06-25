@@ -49,8 +49,8 @@ nnoremap("<ESC>", ":nohlsearch<Bar>:echo<CR>")
 nnoremap("<Tab>", "%")
 
 -- Paste last yank, not the delete
-nnoremap(",p", '"0p')
-nnoremap(",P", '"0P')
+nnoremap("p", '"0p')
+nnoremap("P", '"0P')
 
 -- Insert blank line
 nnoremap("]<Space>", "o<Esc>")
@@ -63,16 +63,23 @@ nnoremap("[<Space>", "O<Esc>")
 -----------------------------------------------
 -- Visual Mode
 -----------------------------------------------
+
 -- Better indent
 vnoremap("<", "<gv")
 vnoremap(">", ">gv")
+
+-- Delete selected before plaste
 vnoremap("p", '"_dP')
+
+-- Search and replace
+vnoremap("*", "\"ay/\\V<CR>=escape(@a,'/')<CR><CR>N\"_cgn")
 
 -----------------------------------------------
 -- Visual Block
 -----------------------------------------------
 
 -- Move text up and down
+
 xnoremap("J", ":move '>+1<CR>gv-gv")
 xnoremap("U", ":move '<-2<CR>gv-gv")
 xnoremap("<A-j>", ":move '>+1<CR>gv-gv")
