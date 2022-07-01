@@ -9,3 +9,12 @@ alias ohmyzsh="nvim ~/.oh-my-zsh/"
 alias zshconfig="nvim ~/.zshrc"
 alias tb="nc termbin.com 9999"
 alias vimbegood="docker run -it --rm brandoncc/vim-be-good:latest"
+alias mkdir='mkdir --parents'
+alias df='df --all --si --print-type'
+alias fzfp="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
+
+# git
+alias g='git'
+
+# fuck
+eval $(/home/k1ng/.local/bin/thefuck --alias)

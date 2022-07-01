@@ -8,16 +8,6 @@ vim.cmd([[
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
   augroup end
-  augroup _git
-    autocmd!
-    autocmd FileType gitcommit setlocal wrap
-    autocmd FileType gitcommit setlocal spell
-  augroup end
-  augroup _markdown
-    autocmd!
-    autocmd FileType markdown setlocal wrap
-    autocmd FileType markdown setlocal spell
-  augroup end
   augroup _auto_resize
     autocmd!
     autocmd VimResized * tabdo wincmd =
@@ -59,7 +49,17 @@ autocmd("TextYankPost", {
     callback = function()
         vim.highlight.on_yank({
             higroup = "IncSearch",
-            timeout = 40,
+            timeout = 70,
         })
+    end,
+})
+
+-- Do not create undofiles
+local buffer_group = augroup("NoUndoFile", {})
+autocmd({ "BufWritePre" }, {
+    group = buffer_group,
+    pattern = { "/tmp/*", "COMMIT_EDITMSG", "MERGE_MSG", "*.tmp", "*.bak" },
+    callback = function()
+        vim.opt_local.undofile = false
     end,
 })

@@ -97,21 +97,29 @@ cmp.setup({
     formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
-            -- Kind icons
             vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-            -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
             vim_item.menu = ({
                 nvim_lsp = "[LSP]",
                 luasnip = "[Snippet]",
                 buffer = "[Buffer]",
                 path = "[Path]",
+                cmp_tabnine = "[TN]",
             })[entry.source.name]
+
+            if entry.source.name == "cmp_tabnine" then
+                if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+                    vim_item.menu = entry.completion_item.data.detail .. " " .. vim_item.menu
+                end
+                vim_item.kind = ""
+            end
+
             return vim_item
         end,
     },
     sources = {
         { name = "buffer" },
         { name = "nvim_lsp" },
+        { name = "cmp_tabnine" },
         { name = "luasnip" },
         { name = "path" },
         { name = "nvim_lua" },
@@ -126,7 +134,7 @@ cmp.setup({
         },
     },
     experimental = {
-        ghost_text = false,
+        ghost_text = true,
         native_menu = false,
     },
 })

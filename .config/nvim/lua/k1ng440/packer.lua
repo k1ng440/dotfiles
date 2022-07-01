@@ -65,6 +65,7 @@ return packer.startup(function(use)
     -- Motion
     ---------------------------------------------
     use("ggandor/lightspeed.nvim")
+    use("christoomey/vim-tmux-navigator")
 
     ---------------------------------------------
     -- Colorschemes
@@ -81,6 +82,7 @@ return packer.startup(function(use)
     use("saadparwaiz1/cmp_luasnip") -- snippet completions
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-nvim-lua")
+    use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
 
     ---------------------------------------------
     -- LSP
@@ -100,6 +102,8 @@ return packer.startup(function(use)
             require("telescope").load_extension("goimpl")
         end,
     }) -- Generate struct methods from interface
+
+    use("olexsmir/gopher.nvim")
 
     ---------------------------------------------
     -- Copilot
@@ -140,6 +144,7 @@ return packer.startup(function(use)
     })
 
     use("stevearc/dressing.nvim")
+    use("ThePrimeagen/harpoon")
 
     ---------------------------------------------
     -- Treesitter

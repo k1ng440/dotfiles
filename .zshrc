@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker gh golang zsh-autosuggestions)
+plugins=(git docker gh golang zsh-autosuggestions tmux)
 
 source $ZSH/oh-my-zsh.sh
 export editor='nvim'
@@ -112,7 +112,6 @@ export editor='nvim'
 
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -121,7 +120,17 @@ export NVM_DIR="$HOME/.nvm"
 source ${HOME}/.zsh_function
 source ${HOME}/.aliases
 source ${HOME}/.zsh_profile
-source ${HOME}/.paths
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Paths
+addToPath $HOME/.yarn/bin
+addToPath $HOME/.config/yarn/global/node_modules/.bin
+addToPath $HOME/.cargo/bin
+addToPath $HOME/.rustup
+addToPath $HOME/.krew/bin
+addToPath $HOME/.local/bin
+addToPath $HOME/bin
+addToPath $GOROOT/bin
+addToPath $GOPATH/bin

@@ -120,6 +120,11 @@ local no_errors, error_msg = pcall(function()
             path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/cmp-path",
             url = "https://github.com/hrsh7th/cmp-path",
         },
+        ["cmp-tabnine"] = {
+            loaded = true,
+            path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/cmp-tabnine",
+            url = "https://github.com/tzachar/cmp-tabnine",
+        },
         cmp_luasnip = {
             loaded = true,
             path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
@@ -167,6 +172,16 @@ local no_errors, error_msg = pcall(function()
             path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/goimpl.nvim",
             url = "https://github.com/edolphin-ydf/goimpl.nvim",
         },
+        ["gopher.nvim"] = {
+            loaded = true,
+            path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/gopher.nvim",
+            url = "https://github.com/olexsmir/gopher.nvim",
+        },
+        harpoon = {
+            loaded = true,
+            path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/harpoon",
+            url = "https://github.com/ThePrimeagen/harpoon",
+        },
         ["impatient.nvim"] = {
             loaded = true,
             path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/impatient.nvim",
@@ -210,11 +225,11 @@ local no_errors, error_msg = pcall(function()
         ["nvim-dap"] = {
             after = {
                 "telescope-dap.nvim",
-                "nvim-dap-virtual-text",
                 "nvim-dap-go",
                 "one-small-step-for-vimkind",
-                "nvim-dap-ui",
+                "nvim-dap-virtual-text",
                 "dap-buddy.nvim",
+                "nvim-dap-ui",
                 "nvim-dap-python",
             },
             config = {
@@ -397,6 +412,11 @@ local no_errors, error_msg = pcall(function()
             path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/vim-sensible",
             url = "https://github.com/tpope/vim-sensible",
         },
+        ["vim-tmux-navigator"] = {
+            loaded = true,
+            path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
+            url = "https://github.com/christoomey/vim-tmux-navigator",
+        },
         ["which-key.nvim"] = {
             loaded = true,
             path = "/home/k1ng/.local/share/nvim/site/pack/packer/start/which-key.nvim",
@@ -452,6 +472,10 @@ local no_errors, error_msg = pcall(function()
     time([[Defining lazy-load commands]], true)
     pcall(
         vim.cmd,
+        [[command -nargs=* -range -bang -complete=file Start lua require("packer.load")({'vim-dispatch'}, { cmd = "Start", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]]
+    )
+    pcall(
+        vim.cmd,
         [[command -nargs=* -range -bang -complete=file Dispatch lua require("packer.load")({'vim-dispatch'}, { cmd = "Dispatch", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]]
     )
     pcall(
@@ -461,10 +485,6 @@ local no_errors, error_msg = pcall(function()
     pcall(
         vim.cmd,
         [[command -nargs=* -range -bang -complete=file Focus lua require("packer.load")({'vim-dispatch'}, { cmd = "Focus", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]]
-    )
-    pcall(
-        vim.cmd,
-        [[command -nargs=* -range -bang -complete=file Start lua require("packer.load")({'vim-dispatch'}, { cmd = "Start", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]]
     )
     time([[Defining lazy-load commands]], false)
 
