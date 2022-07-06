@@ -60,6 +60,7 @@ return packer.startup(function(use)
     use("gpanders/editorconfig.nvim")
     use("mrjones2014/legendary.nvim")
     use("tpope/vim-eunuch") -- Vim sugar for the UNIX shell commands that need it the most
+    use("folke/todo-comments.nvim")
 
     ---------------------------------------------
     -- Motion

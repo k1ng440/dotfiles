@@ -8,9 +8,6 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'sainnhe/tmux-fzf'
 set -g @plugin 'tmux-plugins/tmux-yank'
-set -g @plugin 'dracula/tmux'
-
-set -g status-keys vi
 
 # prefix
 unbind C-b
@@ -20,26 +17,17 @@ bind-key C-a send-prefix
 # mouse
 setw -g mouse on
 setw -g alternate-screen on
-set -g status-keys vi
 
 # vim mode
 set-window-option -g mode-keys vi
 bind-key -T copy-mode-vi 'v' send -X begin-selection
 bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
 
-# window
+# set window title
 set-window-option -g automatic-rename on
+
+# aggressive-resize
 set-window-option -g aggressive-resize
-
-# dracula customizations
-set -g @dracula-plugins "time"
-set -g @dracula-show-powerline true
-set -g @dracula-show-fahrenheit false
-set -g @dracula-military-time false
-set -g @dracula-show-left-icon session
-set -g @dracula-border-contrast true
-set -g @dracula-git-show-current-symbol ✓
-
 
 # start window and pane numbering at 1.
 set -g base-index 1
@@ -47,6 +35,24 @@ set -g pane-base-index 1
 
 # don't wait for an escape sequence after seeing C-b.
 set -sg escape-time 0
+
+# status bar
+bind-key -n C-F3 set-option -g status
+set -g status-style bg=default
+set -g status-bg '#11121d'
+set -g status-fg '#a0a8cd'
+set -g status-left-length 80
+set -g status-right-length 80
+set -g status-keys vi
+set -g status-justify left
+set -g status-left '#[fg=#2b2f37]#[fg=#ee6d85,bg=#2b2f37] #S ⧉ #[fg=#2b2f37,bg=default]  '
+set -g status-right "#[fg=#2b2f37]#[fg=#f6955b,bg=#2b2f37]#H #[fg=#2b2f37,bg=default]"
+set -g status-interval 10
+set-window-option -g window-status-current-format "#[fg=#7199ee]#I*:#W"
+
+# border
+set -g pane-border-style fg="#282c34"
+set -g pane-active-border-style "bg=default fg=#4A5057"
 
 # create session
 bind C-c new-session
@@ -79,6 +85,9 @@ bind < swap-pane -U       # swap current pane with the previous one
 bind b list-buffers  # list paste buffers
 bind p paste-buffer  # paste from the top paste buffer
 bind P choose-buffer # choose which buffer to paste from
+
+# set -g default-terminal "screen-256color"
+set-option -sa terminal-overrides ",xterm-256color:RGB"
 
 # Initialize TMUX plugin manager
 run '~/.tmux/plugins/tpm/tpm'

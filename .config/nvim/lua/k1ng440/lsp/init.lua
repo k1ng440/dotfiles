@@ -6,3 +6,4 @@ end
 require("k1ng440.lsp.configs")
 require("k1ng440.lsp.handlers").setup()
 require("k1ng440.lsp.null-ls")
+require("k1ng440.lsp.organize-imports")

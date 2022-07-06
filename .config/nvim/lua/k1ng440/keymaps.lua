@@ -56,6 +56,10 @@ nnoremap("P", '"0P')
 nnoremap("]<Space>", "o<Esc>")
 nnoremap("[<Space>", "O<Esc>")
 
+-- Prevent x from overriding the clipboard
+nnoremap("x", '"_x')
+nnoremap("X", '"_X')
+
 -----------------------------------------------
 -- Insert Mode
 -----------------------------------------------
@@ -70,9 +74,6 @@ vnoremap(">", ">gv")
 
 -- Delete selected before plaste
 vnoremap("p", '"_dP')
-
--- Search and replace
-vnoremap("*", "\"ay/\\V<CR>=escape(@a,'/')<CR><CR>N\"_cgn")
 
 -----------------------------------------------
 -- Visual Block
