@@ -1,5 +1,12 @@
 local M = {}
 
+local severity_levels = {
+    vim.diagnostic.severity.ERROR,
+    vim.diagnostic.severity.WARN,
+    vim.diagnostic.severity.INFO,
+    vim.diagnostic.severity.HINT,
+}
+
 M.setup = function()
     local signs = {
         { name = "DiagnosticSignError", text = "" },
@@ -17,7 +24,7 @@ M.setup = function()
         signs = {
             active = signs,
         },
-        update_in_insert = true,
+        update_in_insert = false,
         underline = true,
         severity_sort = true,
         float = {
@@ -41,6 +48,15 @@ M.setup = function()
         border = "rounded",
         width = 60,
     })
+end
+
+local get_highest_error_severity = function()
+    for _, level in ipairs(severity_levels) do
+        local diags = vim.diagnostic.get(0, { severity = { min = level } })
+        if #diags > 0 then
+            return level, diags
+        end
+    end
 end
 
 local function lsp_highlight_document(client)
@@ -68,15 +84,32 @@ local function lsp_keymaps(bufnr)
     keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
     keymap(bufnr, "n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-    keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
-    keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+    keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded", float = true, })<CR>', opts)
+    keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded", float = true })<CR>', opts)
+    keymap(
+        bufnr,
+        "n",
+        "]D",
+        '<cmd>vim.diagnostic.goto_next({ severity = get_highest_error_severity(), border = "rounded", wrap = true, float = true })<CR>',
+        opts
+    )
+    keymap(
+        bufnr,
+        "n",
+        "[D",
+        '<cmd>vim.diagnostic.goto_prev({ severity = get_highest_error_severity(), border = "rounded", wrap = true, float = true, })<CR>',
+        opts
+    )
     keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
     vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting(1)' ]])
 end
 
+local lsp_spinner = require("lsp_spinner")
 M.on_attach = function(client, bufnr)
+    lsp_spinner.on_attach(client, bufnr)
+
     if client.name == "tsserver" then
-        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_formatting = true
     end
 
     if client.name == "sumneko_lua" then

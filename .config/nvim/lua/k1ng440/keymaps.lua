@@ -1,15 +1,14 @@
-local opts = { noremap = true, silent = true }
+-- leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-local keymap = vim.api.nvim_set_keymap
 local keymapper = require("k1ng440.keymapper")
 local nnoremap = keymapper.nnoremap
 -- local inoremap = keymapper.inoremap
 local xnoremap = keymapper.xnoremap
 local vnoremap = keymapper.vnoremap
 
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+local silent = { silent = true }
 
 -- Modes
 --   normal_mode = "n",
@@ -60,6 +59,9 @@ nnoremap("[<Space>", "O<Esc>")
 nnoremap("x", '"_x')
 nnoremap("X", '"_X')
 
+-- nvim-tree
+nnoremap("\\", ":NvimTreeFocus<CR>", silent)
+
 -----------------------------------------------
 -- Insert Mode
 -----------------------------------------------
@@ -82,6 +84,6 @@ vnoremap("p", '"_dP')
 -- Move text up and down
 
 xnoremap("J", ":move '>+1<CR>gv-gv")
-xnoremap("U", ":move '<-2<CR>gv-gv")
+xnoremap("K", ":move '<-2<CR>gv-gv")
 xnoremap("<A-j>", ":move '>+1<CR>gv-gv")
 xnoremap("<A-k>", ":move '<-2<CR>gv-gv")

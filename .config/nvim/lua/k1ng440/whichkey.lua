@@ -87,7 +87,7 @@ local mappings = {
     ["q"] = { "<cmd>Bdelete<CR>", "Close Buffer" },
     ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
     ["f"] = {
-        "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+        "<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
         "Find files",
     },
     ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Live Grep" },
@@ -129,34 +129,21 @@ local mappings = {
     l = {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-        d = {
-            "<cmd>Telescope lsp_document_diagnostics<cr>",
-            "Document Diagnostics",
-        },
-        w = {
-            "<cmd>Telescope lsp_workspace_diagnostics<cr>",
-            "Workspace Diagnostics",
-        },
+        d = { "<cmd>lua require'telescope.builtin'.diagnostics{bufnr=0}<cr>", "Document Diagnostics" },
+        w = { "<cmd>lua require'telescope.builtin'.diagnostics{}<cr>", "Workspace Diagnostics" },
         f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
         i = { "<cmd>LspInfo<cr>", "Info" },
-        I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-        j = {
-            "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-            "Next Diagnostic",
-        },
-        k = {
-            "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-            "Prev Diagnostic",
-        },
+        I = { "<cmd>Mason<cr>", "Mason" },
+        j = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
+        k = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
         q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-        S = {
-            "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-            "Workspace Symbols",
-        },
+        S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
+        t = { "<cmd>SymbolsOutline<cr>", "Symbol Outline" },
     },
+
     s = {
         name = "Search",
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -176,8 +163,8 @@ local mappings = {
         t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
         p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
         f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-        h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-        v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+        h = { "<cmd>!tmux split-window -vh -l 50<cr><cr>", "Horizontal" },
+        v = { "<cmd>!tmux split-window -vf -l 10<cr><cr>", "Vertical" },
     },
 
     n = {

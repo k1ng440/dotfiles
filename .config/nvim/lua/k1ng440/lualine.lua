@@ -33,8 +33,7 @@ local mode = {
 
 local filetype = {
     "filetype",
-    icons_enabled = false,
-    icon = nil,
+    icons_enabled = true,
 }
 
 local branch = {
@@ -68,7 +67,7 @@ lualine.setup({
         theme = "tokyonight",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
-        disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
+        disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "quickfix" },
         always_divide_middle = true,
     },
     sections = {
@@ -89,5 +88,5 @@ lualine.setup({
         lualine_z = {},
     },
     tabline = {},
-    extensions = {},
+    extensions = { "fzf", "quickfix" },
 })

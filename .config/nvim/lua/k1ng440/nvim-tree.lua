@@ -129,7 +129,15 @@ nvim_tree.setup({
                 },
             },
         },
-        special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md", "go.mod" },
+        special_files = {
+            "Cargo.toml",
+            "Makefile",
+            "README.md",
+            "readme.md",
+            "go.mod",
+            "composer.json",
+            "package.json",
+        },
     },
     actions = {
         open_file = {

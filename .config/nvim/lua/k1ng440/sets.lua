@@ -40,6 +40,7 @@ local options = {
         precedes = "⟨",
         tab = "⭲ ",
     },
+    termguicolors = true,
 }
 
 -- vim.opt.shortmess:append "c"

@@ -8,3 +8,7 @@ Welcome to my world. This is a collection of neovim, zsh configuration
 TODO
 ### Installation
 TODO
+
+
+## Credit
+* [neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch)

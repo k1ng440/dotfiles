@@ -61,6 +61,8 @@ return packer.startup(function(use)
     use("mrjones2014/legendary.nvim")
     use("tpope/vim-eunuch") -- Vim sugar for the UNIX shell commands that need it the most
     use("folke/todo-comments.nvim")
+    use("tpope/vim-obsession") -- integrates with tmux-resurrect
+    use("kyazdani42/nvim-tree.lua")
 
     ---------------------------------------------
     -- Motion
@@ -84,15 +86,40 @@ return packer.startup(function(use)
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-nvim-lua")
     use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
+    use("onsails/lspkind.nvim")
 
     ---------------------------------------------
     -- LSP
     ---------------------------------------------
     use("neovim/nvim-lspconfig") -- enable LSP
-    use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+    use("williamboman/mason.nvim")
+    use("williamboman/mason-lspconfig.nvim")
     use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
     use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
-    use("RRethy/vim-illuminate")
+    -- use("RRethy/vim-illuminate")
+    use("doums/lsp_spinner.nvim")
+    use("simrat39/symbols-outline.nvim")
+    use({
+        "johmsalas/text-case.nvim",
+        config = function()
+            require("textcase").setup({})
+            require("telescope").load_extension("textcase")
+            vim.api.nvim_set_keymap("n", "ga.", "<cmd>TextCaseOpenTelescope<CR>", { desc = "Telescope" })
+            vim.api.nvim_set_keymap("v", "ga.", "<cmd>TextCaseOpenTelescope<CR>", { desc = "Telescope" })
+        end,
+    })
+
+    ---------------------------------------------
+    -- Previewer
+    ---------------------------------------------
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" },
+    })
 
     ---------------------------------------------
     -- Codegen
@@ -105,11 +132,6 @@ return packer.startup(function(use)
     }) -- Generate struct methods from interface
 
     use("olexsmir/gopher.nvim")
-
-    ---------------------------------------------
-    -- Copilot
-    ---------------------------------------------
-    -- use("github/copilot.vim")
 
     ---------------------------------------------
     -- Debugger

@@ -110,6 +110,8 @@ export editor='nvim'
 #
 # export PATH=$PATH:$HOME/.local/bin
 
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 
@@ -134,3 +136,7 @@ addToPath $HOME/.local/bin
 addToPath $HOME/bin
 addToPath $GOROOT/bin
 addToPath $GOPATH/bin
+addToPath $HOME/.pulumi/bin
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
